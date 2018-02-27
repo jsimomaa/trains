@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Train tracking</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'id: ' + ${userInfo.email}" />
+    <p th:text="'content: ' + ${userInfo.trainIds}" />
+    <a href="/trains">Track another train</a>
+</body>
+</html>

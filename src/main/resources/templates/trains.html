@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Train tracking</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Track a train - cho choo</h1>
+	<form action="#" th:action="@{/trains}" th:object="${userInfo}"
+		method="post">
+		<p>
+			Email: <input type="text" th:field="*{email}" />
+		</p>
+		<p>
+			Train ID: <input type="text" th:field="*{trainIds}" />
+		</p>
+		<p>
+			<input type="submit" value="Submit" name="create" />
+			<input type="submit" value="Delete" name="delete" />
+		</p>
+		<input type="hidden" readonly="readonly" th:field="*{id}" />
+	</form>
+	<script type="text/javascript">
+		console.log('pöö ' + navigator.userAgent);
+	</script>
+</body>
+</html>
