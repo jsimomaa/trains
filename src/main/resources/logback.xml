@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%-5p [%d] %c: %m%n%rEx</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>/var/log/trains/out.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>/var/log/trains/out-%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+      <maxFileSize>10MB</maxFileSize>
+      <maxHistory>30</maxHistory>
+      <totalSizeCap>200MB</totalSizeCap>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%-5p [%d] %c: %m%n%rEx</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <appender name="async-console" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="console" />
+  </appender>
+
+  <appender name="async-file" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="file" />
+  </appender>
+
+  <root level="info">
+    <appender-ref ref="async-console" />
+    <appender-ref ref="async-file" />
+  </root>
+</configuration>

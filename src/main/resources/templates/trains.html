@@ -1,25 +1,39 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Train tracking</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Seuraa junasi kulkua - 🚂</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style type="text/css">
+		.error {
+			color: red;
+		}
+	</style>
 </head>
 <body>
-	<h1>Track a train - cho choo</h1>
+	<h1>Seuraa junaasi - 🚂</h1>
 	<form action="#" th:action="@{/trains}" th:object="${userInfo}"
 		method="post">
 		<p>
-			Email: <input type="text" th:field="*{email}" />
+			📧 Sähköposti: <input type="text" th:field="*{email}" placeholder="user@example.org"/>
 		</p>
+		<p class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</p>
 		<p>
-			Train ID: <input type="text" th:field="*{trainIds}" />
+			🔢 Junan numero: <input type="text" th:field="*{trainIds}" placeholder="8452:2"/>
 		</p>
+		<p class="error" th:if="${#fields.hasErrors('trainIds')}" th:errors="*{trainIds}">Train IDs Error</p>
 		<p>
-			<input type="submit" value="Submit" name="create" />
-			<input type="submit" value="Delete" name="delete" />
+			<input type="submit" value="Aloita seuranta" name="create" />
+			<input type="submit" value="Lopeta seuranta" name="delete" />
 		</p>
 		<input type="hidden" readonly="readonly" th:field="*{id}" />
 	</form>
+	<p>Tukee useita yhtäaikaisia junan numeroita seuraavassa formaatissa:</p> 
+		<pre><code>id-1:threshold-1,id-2:threshold-2</code>
+	</pre>
+	<p>Esimerkiksi, <code>8452:2,8536:3</code> seuraa junaa <a target="blank_" href="http://jekku.hylly.org/liikenne/kulkutiedot/#/juna/8452">8452</a> raportointikynnyksellä 2 minuuttia ja junaa <a target="blank_" href="http://jekku.hylly.org/liikenne/kulkutiedot/#/juna/8536">8536</a> raportointikynnyksellä 3 minuuttia.</p>
+	<p>Seurattavien junien numeroita voi löytää mm. <a target="blank_" href="http://jekku.hylly.org/liikenne/kulkutiedot/">täältä</a>.</p>
 	<script type="text/javascript">
 		console.log('pöö ' + navigator.userAgent);
 	</script>

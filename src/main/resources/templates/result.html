@@ -1,13 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Train tracking</title>
+    <title>✔ Junia seurataan | Seuraa junasi kulkua</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-	<h1>Result</h1>
-    <p th:text="'id: ' + ${userInfo.email}" />
-    <p th:text="'content: ' + ${userInfo.trainIds}" />
-    <a href="/trains">Track another train</a>
+	<h1>Junia seurataan - 🚂</h1>
+    <p th:text="'Varmista sähköpostiosoite ' + ${userInfo.email}" />
+    <p th:text="'Seurattavien junien numerot: ' + ${userInfo.trainIds}" />
+    <a href="/trains">Seuraa toista junaa</a>
 </body>
 </html>

@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>🗑 Seuranta lopetettu | Seuraa junasi kulkua</title>
+    <title>✔ Hyväksytty | Seuraa junasi kulkua</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-	<h1>Junien seuraaminen lopetettu - 🗑</h1>
-    <p th:text="'Sähköpostiosoite: ' + ${userInfo.email}" />
+    <h1>Hyväksytty - ✔</h1>
+    <p th:text="'Varmennettu sähköpostiosoite: ' + ${userInfo.email}" />
+    <p th:text="'Seurattavien junien numerot: ' + ${userInfo.trainIds}" />
     <a href="/trains">Seuraa toista junaa</a>
 </body>
 </html>
